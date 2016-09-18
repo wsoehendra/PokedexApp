@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".pokedexChooser"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pokedex_chooser"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
