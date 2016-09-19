@@ -11,9 +11,16 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/pokedexhead"/>
+        android:src="@drawable/pokedexhead"
+        android:background="@null"
+        android:layout_gravity="top" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
 
 </FrameLayout>
