@@ -1,26 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E01818"
-    tools:context="com.will.android.pokedexapp.pokedexChooser">
+    tools:context="com.will.android.pokedexapp.pokedexChooser"
+    android:orientation="vertical">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
+
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/pokedexhead"
-        android:background="@null"
-        android:layout_gravity="top" />
+        android:id="@+id/pokedexHead"
+        android:src="@drawable/pokedexhead"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"
+        />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </ListView>
-
-</FrameLayout>
+</LinearLayout>
