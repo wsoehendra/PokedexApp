@@ -11,18 +11,19 @@
          TextureView, etc. -->
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/pokedexHead"
-        android:src="@drawable/pokedexhead"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_view"
-        />
+        android:src="@drawable/pokedexhead"
+        android:background="@null"/>
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

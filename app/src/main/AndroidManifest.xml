@@ -23,6 +23,11 @@
             android:name=".pokedexChooser"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_pokedex_chooser"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".pokemonDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pokemon_detail"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

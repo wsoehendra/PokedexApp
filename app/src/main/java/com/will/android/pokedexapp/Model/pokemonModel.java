@@ -1,4 +1,4 @@
-package com.will.android.pokedexapp;
+package com.will.android.pokedexapp.Model;
 
 import java.sql.Blob;
 
@@ -58,7 +58,6 @@ public class pokemonModel {
     }
 
     public int getSprite() {
-
         return sprite;
     }
 
@@ -192,6 +191,6 @@ public class pokemonModel {
 
     @Override
     public String toString(){
-        return ID+pokemon;
+        return ID+" "+pokemon;
     }
 }

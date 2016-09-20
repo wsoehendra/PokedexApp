@@ -1,4 +1,4 @@
-package com.will.android.pokedexapp;
+package com.will.android.pokedexapp.Database;
 
 import android.content.Context;
 

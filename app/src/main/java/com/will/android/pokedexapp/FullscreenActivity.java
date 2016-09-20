@@ -11,10 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
+//This activity shows a splashscreen when opening the app
+
 public class FullscreenActivity extends AppCompatActivity {
 
     ImageButton openBtn;
@@ -22,10 +20,16 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Hide the ActionBar and add the FULLSCREEN flag
         ActionBar actionBar = getSupportActionBar();
-        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().SYSTEM_UI_FLAG_FULLSCREEN);
         actionBar.hide();
+        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().SYSTEM_UI_FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_fullscreen);
+
+        //Create the Open Pokedex Button and
+        //set it to open pokedexChooser activity when clicked
         openBtn = (ImageButton) findViewById(R.id.openBtn);
         openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +39,7 @@ public class FullscreenActivity extends AppCompatActivity {
         });
     }
 
+    //Method that switches activities to pokedexChooser
     public void goToChooser(){
         Intent intent = new Intent(this, pokedexChooser.class);
         startActivity(intent);
