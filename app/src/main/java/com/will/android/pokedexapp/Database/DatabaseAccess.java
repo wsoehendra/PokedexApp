@@ -51,34 +51,6 @@ public class DatabaseAccess {
         }
     }
 
-    public List<pokemonModel> getPokemons() {
-        List<pokemonModel> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM POKEMONS", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            pokemonModel poke = new pokemonModel();
-            poke.setID(cursor.getInt(0));
-            poke.setPokemon(cursor.getString(1));
-            poke.setHp(cursor.getString(2));
-            poke.setAtk(cursor.getString(3));
-            poke.setDef(cursor.getString(4));
-            poke.setSa(cursor.getString(5));
-            poke.setSd(cursor.getString(6));
-            poke.setSpd(cursor.getString(7));
-            poke.setTypeI(cursor.getString(8));
-            poke.setTypeII(cursor.getString(9));
-            poke.setAbilityI(cursor.getString(10));
-            poke.setAbilityII(cursor.getString(11));
-            poke.setNextEv(cursor.getString(12));
-            poke.setPrevEv(cursor.getString(13));
-            poke.setHeight(cursor.getString(14));
-            poke.setWeight(cursor.getString(15));
-            list.add(poke);
-        }
-        cursor.close();
-        return list;
-    }
-
     public ArrayList<pokemonModel> getPokemonBrief() {
         ArrayList<pokemonModel> list = new ArrayList<pokemonModel>();
         Cursor cursor = database.rawQuery("SELECT * FROM POKEMONS", null);
@@ -94,9 +66,10 @@ public class DatabaseAccess {
         return list;
     }
 
-    public pokemonModel getPokemon(String pokemon){
+    public pokemonModel getPokemon(int pokeID){
         pokemonModel selectedPoke = new pokemonModel();
-        Cursor cursor = database.rawQuery("SELECT"+pokemon+"FROM POKEMONS", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM POKEMONS WHERE ID = "+pokeID, null);
+        cursor.moveToFirst();
         selectedPoke.setID(cursor.getInt(0));
         selectedPoke.setPokemon(cursor.getString(1));
         selectedPoke.setHp(cursor.getString(2));
@@ -114,6 +87,7 @@ public class DatabaseAccess {
         selectedPoke.setHeight(cursor.getString(14));
         selectedPoke.setWeight(cursor.getString(15));
 
+        cursor.close();
         return selectedPoke;
     }
 

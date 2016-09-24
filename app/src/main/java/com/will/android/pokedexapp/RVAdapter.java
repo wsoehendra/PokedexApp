@@ -1,8 +1,10 @@
 package com.will.android.pokedexapp;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,14 +22,11 @@ import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder> {
 
-    private AdapterView.OnItemClickListener listener;
-
     public static class pokemonViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
         TextView pokemonName;
         TextView pokemonID;
         ImageView pokemonSprite;
-        private AdapterView.OnItemClickListener listener;
 
         pokemonViewHolder(View itemView) {
             super(itemView);
@@ -38,6 +37,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
 
             Typeface font = Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/gba.ttf");
             this.pokemonName.setTypeface(font);
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    int pos = getAdapterPosition()+1;
+                    Log.d("onCLICK", "Clicked: "+pos);
+
+                }
+            });
         }
 
     }
@@ -56,15 +64,16 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
     @Override
     public pokemonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_layout, viewGroup, false);
+
         pokemonViewHolder pvh = new pokemonViewHolder(v);
         return pvh;
     }
 
     @Override
-    public void onBindViewHolder(pokemonViewHolder personViewHolder, int i) {
-        personViewHolder.pokemonName.setText(pokemonsList.get(i).getPokemon());
-        personViewHolder.pokemonID.setText("Pokemon #: "+String.valueOf(pokemonsList.get(i).getID()));
-        personViewHolder.pokemonSprite.setImageResource(pokemonsList.get(i).getSprite());
+    public void onBindViewHolder(pokemonViewHolder pokemonViewHolder, int i) {
+        pokemonViewHolder.pokemonName.setText(pokemonsList.get(i).getPokemon());
+        pokemonViewHolder.pokemonID.setText("Pokemon #: "+String.valueOf(pokemonsList.get(i).getID()));
+        pokemonViewHolder.pokemonSprite.setImageResource(pokemonsList.get(i).getSprite());
     }
 
     @Override

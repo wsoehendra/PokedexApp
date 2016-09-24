@@ -1,11 +1,15 @@
 package com.will.android.pokedexapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.will.android.pokedexapp.Database.DatabaseAccess;
 import com.will.android.pokedexapp.Model.pokemonModel;
@@ -64,5 +68,25 @@ public class pokedexChooser extends AppCompatActivity {
         //Create an RVAdapter adapter for the RecyclerView and use it
         RVAdapter adapter = new RVAdapter(pokemons);
         rv.setAdapter(adapter);
+
+        rv.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
+                @Override public boolean onSingleTapUp(MotionEvent e) {return true;}});
+
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+                if(child != null && gestureDetector.onTouchEvent(e)) {
+                    int position = rv.getChildAdapterPosition(child)+1;
+                    Intent intent = new Intent(child.getContext(),pokemonDetail.class);
+                    intent.putExtra("pokeID", position);
+                    startActivity(intent);
+                } return false; }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) { }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) { }});
     }
 }
