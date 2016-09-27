@@ -72,7 +72,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
     @Override
     public void onBindViewHolder(pokemonViewHolder pokemonViewHolder, int i) {
         pokemonViewHolder.pokemonName.setText(pokemonsList.get(i).getPokemon());
-        pokemonViewHolder.pokemonID.setText("Pokemon #: "+String.valueOf(pokemonsList.get(i).getID()));
+        pokemonViewHolder.pokemonID.setText("# "+String.valueOf(pokemonsList.get(i).getID()));
         pokemonViewHolder.pokemonSprite.setImageResource(pokemonsList.get(i).getSprite());
     }
 

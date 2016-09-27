@@ -1,5 +1,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +14,8 @@
         android:src="@drawable/s10"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:id="@+id/pokemon_sprite"/>
+        android:id="@+id/pokemon_sprite"
+        android:background="#66FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,5 +25,42 @@
         android:id="@+id/pokemon_name"
         android:layout_gravity="center"
         android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:id="@+id/pokemon_typeI"
+            android:layout_weight="0.45"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:gravity="center" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:id="@+id/pokemon_typeII"
+            android:layout_weight="0.44"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45" />
+    </LinearLayout>
 
 </LinearLayout>
