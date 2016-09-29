@@ -21,19 +21,29 @@ public class pokemonDetail extends AppCompatActivity {
     TextView pokemonName;
     TextView pokemonTypeI;
     TextView pokemonTypeII;
+    TextView pokemonHP;
+    TextView pokemonATK;
+    TextView pokemonDEF;
+    TextView pokemonSA;
+    TextView pokemonSD;
+    TextView pokemonSPD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar actionBar = getSupportActionBar();
-        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().SYSTEM_UI_FLAG_FULLSCREEN);
-        actionBar.hide();
         setContentView(R.layout.activity_pokemon_detail);
 
         //Initialize all layout elements
         pokemonName = (TextView) findViewById(R.id.pokemon_name);
-        pokemonTypeI = (TextView) findViewById(R.id.pokemon_typeI);
-        pokemonTypeII = (TextView) findViewById(R.id.pokemon_typeII);
+        pokemonTypeI = (TextView) findViewById(R.id.pokemonTypeI);
+        pokemonTypeII = (TextView) findViewById(R.id.pokemonTypeII);
+        pokemonHP = (TextView) findViewById(R.id.pokemonHP);
+        pokemonATK = (TextView) findViewById(R.id.pokemonATK);
+        pokemonDEF = (TextView) findViewById(R.id.pokemonDEF);
+        pokemonSA = (TextView) findViewById(R.id.pokemonSA);
+        pokemonSD = (TextView) findViewById(R.id.pokemonSD);
+        pokemonSPD = (TextView) findViewById(R.id.pokemonSPD);
+
 
         //Set custom font for Pokemon Name TextView
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/gba.ttf");
@@ -51,10 +61,18 @@ public class pokemonDetail extends AppCompatActivity {
         ImageView img = (ImageView) findViewById(R.id.pokemon_sprite);
         img.setImageResource(getResources().getIdentifier("@drawable/sa_"+pokeID, "drawable", getPackageName()));
 
+        //Populate stats textviews with correct Pokemon data
         pokemonName.setText(pokemon.getPokemon());
         pokemonTypeI.setText(pokemon.getTypeI());
         pokemonTypeII.setText(pokemon.getTypeII());
+        pokemonHP.setText(pokemon.getHp());
+        pokemonATK.setText(pokemon.getAtk());
+        pokemonDEF.setText(pokemon.getDef());
+        pokemonSA.setText(pokemon.getSa());
+        pokemonSD.setText(pokemon.getSd());
+        pokemonSPD.setText(pokemon.getSpd());
 
+        //Set Pokemon Types and colour accordingly
         setTypeColours();
 
     }
@@ -114,6 +132,7 @@ public class pokemonDetail extends AppCompatActivity {
         }
     }
 
+    //Create a GradientDrawable object to colour and round Type TextView corners
     private GradientDrawable tvBG(int colour){
         GradientDrawable gradientDrawable = new GradientDrawable();
 

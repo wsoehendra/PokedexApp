@@ -28,12 +28,6 @@ public class pokedexChooser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Hide the ActionBar and add the FULLSCREEN flag
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().SYSTEM_UI_FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_pokedex_chooser);
 
         //Create a DatabaseAccess object in order to

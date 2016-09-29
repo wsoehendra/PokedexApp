@@ -20,16 +20,9 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Hide the ActionBar and add the FULLSCREEN flag
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().SYSTEM_UI_FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_fullscreen);
 
-        //Create the Open Pokedex Button and
-        //set it to open pokedexChooser activity when clicked
+        //Create the Open Pokedex Button and set it to open pokedexChooser activity when clicked
         openBtn = (ImageButton) findViewById(R.id.openBtn);
         openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
