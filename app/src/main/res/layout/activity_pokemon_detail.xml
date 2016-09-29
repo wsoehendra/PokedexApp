@@ -1,3 +1,5 @@
+
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,72 +9,208 @@
     android:background="#0099cc"
     tools:context="com.will.android.pokedexapp.pokemonDetail"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:scrollbarAlwaysDrawVerticalTrack="false"
+    android:scrollbars="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/s10"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:id="@+id/pokemon_sprite"
-        android:background="#66FFFFFF"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:text="Caterpie"
-        android:id="@+id/pokemon_name"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0.12">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.12"
-            android:gravity="end"
-            android:layout_marginLeft="20dp">
+            android:orientation="vertical"
+            android:background="#0099cc">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/s10"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:id="@+id/pokemon_sprite"
+                android:background="#00FFFFFF"/>
 
             <TextView
-                android:text="TextView"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/pokemon_typeI"
-                android:layout_weight="0.45"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:textAlignment="center"
-                android:gravity="center" />
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="Caterpie"
+                android:id="@+id/pokemon_name"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textAlignment="center" />
 
-            <TextView
-                android:text="TextView"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/pokemon_typeII"
-                android:layout_weight="0.45"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:textAlignment="center"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.22">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.12"
+                    android:gravity="end"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:text="TYPE I"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/pokemon_typeI"
+                        android:layout_weight="0.45"
+                        android:textAllCaps="true"
+                        android:textColor="#FFFFFF"
+                        android:textAlignment="center"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:text="TYPE II"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/pokemon_typeII"
+                        android:layout_weight="0.45"
+                        android:textAllCaps="true"
+                        android:textColor="#FFFFFF"
+                        android:textAlignment="center"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="207dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical">
+
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3"
+                        android:rowCount="6">
+
+                        <TextView
+                            android:text="HP"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:textStyle="normal|bold"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="DEF"
+                            android:layout_columnSpan="1"
+                            android:layout_width="69dp"
+                            android:layout_row="0"
+                            android:layout_column="2"
+                            android:textStyle="normal|bold"
+                            android:textAlignment="center">
+                        </TextView>
+
+                        <TextView
+                            android:text="ATK"
+                            android:layout_columnSpan="1"
+                            android:layout_row="0"
+                            android:layout_column="1"
+                            android:layout_width="69dp"
+                            android:textStyle="normal|bold"
+                            android:textAlignment="center">
+                        </TextView>
+
+                        <TextView
+                            android:text="250"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pokemonHP"
+                            android:layout_row="1"
+                            android:layout_column="0"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="100"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pokemonATK"
+                            android:layout_row="1"
+                            android:layout_column="1"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="100"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pokemonDEF"
+                            android:layout_row="1"
+                            android:layout_column="2"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="SP. DEF."
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="2"
+                            android:layout_column="1"
+                            android:layout_marginTop="15dp"
+                            android:textStyle="normal|bold"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="SPEED"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="2"
+                            android:layout_column="2"
+                            android:layout_marginTop="15dp"
+                            android:textStyle="normal|bold"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="SP. ATK."
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="2"
+                            android:layout_column="0"
+                            android:layout_marginTop="15dp"
+                            android:textStyle="normal|bold"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="100"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pokemonSA"
+                            android:layout_row="3"
+                            android:layout_column="0"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="100"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pokemonSD"
+                            android:layout_row="3"
+                            android:layout_column="1"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:text="100"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pokemonSPD"
+                            android:textAlignment="center" />
+
+                    </GridLayout>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="207dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"></LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
