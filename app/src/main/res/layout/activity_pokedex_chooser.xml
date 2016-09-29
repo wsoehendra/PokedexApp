@@ -15,22 +15,6 @@
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text|textPersonName"
-        android:text="Search"
-        android:ems="10"
-        android:id="@+id/searchText"
-        android:textColor="#FFFFFF"
-        tools:text="Search"
-        android:textStyle="normal|italic"
-        android:textSize="18sp"
-        android:typeface="normal"
-        android:textAlignment="textStart"
-        android:textColorLink="@android:color/holo_blue_dark"
-        android:paddingLeft="16dp" />
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

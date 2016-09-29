@@ -27,6 +27,8 @@ public class pokemonDetail extends AppCompatActivity {
     TextView pokemonSA;
     TextView pokemonSD;
     TextView pokemonSPD;
+    TextView pokemonHeight;
+    TextView pokemonWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,8 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonSA = (TextView) findViewById(R.id.pokemonSA);
         pokemonSD = (TextView) findViewById(R.id.pokemonSD);
         pokemonSPD = (TextView) findViewById(R.id.pokemonSPD);
+        pokemonHeight = (TextView) findViewById(R.id.pokemonHeight);
+        pokemonWeight = (TextView) findViewById(R.id.pokemonWeight);
 
 
         //Set custom font for Pokemon Name TextView
@@ -71,6 +75,8 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonSA.setText(pokemon.getSa());
         pokemonSD.setText(pokemon.getSd());
         pokemonSPD.setText(pokemon.getSpd());
+        pokemonHeight.setText(pokemon.getHeight());
+        pokemonWeight.setText(pokemon.getWeight());
 
         //Set Pokemon Types and colour accordingly
         setTypeColours();
