@@ -2,6 +2,7 @@ package com.will.android.pokedexapp;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,47 +68,61 @@ public class pokemonDetail extends AppCompatActivity {
     }
 
     private void setTypeColours(){
+        GradientDrawable gd = new GradientDrawable();
+        gd.setCornerRadius(10);
+
         switch(pokemon.getTypeI().toLowerCase()){
-            case "normal": pokemonTypeI.setBackgroundColor(0xFFA8A878); break;
-            case "fire": pokemonTypeI.setBackgroundColor(0xFFF08030); break;
-            case "fighting": pokemonTypeI.setBackgroundColor(0xFFC03028); break;
-            case "water": pokemonTypeI.setBackgroundColor(0xFF6890F0); break;
-            case "flying": pokemonTypeI.setBackgroundColor(0xFFA890F0); break;
-            case "grass": pokemonTypeI.setBackgroundColor(0xFF78C850); break;
-            case "poison": pokemonTypeI.setBackgroundColor(0xFFA040A0); break;
-            case "electric": pokemonTypeI.setBackgroundColor(0xFFF8D030); break;
-            case "ground": pokemonTypeI.setBackgroundColor(0xFFE0C068); break;
-            case "psychic": pokemonTypeI.setBackgroundColor(0xFFF85888); break;
-            case "rock": pokemonTypeI.setBackgroundColor(0xFFB8A038); break;
-            case "ice": pokemonTypeI.setBackgroundColor(0xFF98D8D8); break;
-            case "bug": pokemonTypeI.setBackgroundColor(0xFFA8B820); break;
-            case "dragon": pokemonTypeI.setBackgroundColor(0xFF7038F8); break;
-            case "ghost": pokemonTypeI.setBackgroundColor(0xFF705898); break;
-            case "dark": pokemonTypeI.setBackgroundColor(0xFF705848); break;
-            case "steel": pokemonTypeI.setBackgroundColor(0xFFB8B8D0); break;
-            default: return;
+            case "normal": pokemonTypeI.setBackground(tvBG(0xFFA8A878)); break;
+            case "fire": pokemonTypeI.setBackground(tvBG(0xFFF08030)); break;
+            case "fighting": pokemonTypeI.setBackground(tvBG(0xFFC03028)); break;
+            case "water": pokemonTypeI.setBackground(tvBG(0xFF6890F0)); break;
+            case "flying": pokemonTypeI.setBackground(tvBG(0xFFA890F0)); break;
+            case "grass": pokemonTypeI.setBackground(tvBG(0xFF78C850)); break;
+            case "poison": pokemonTypeI.setBackground(tvBG(0xFFA040A0)); break;
+            case "electric": pokemonTypeI.setBackground(tvBG(0xFFF8D030)); break;
+            case "ground": pokemonTypeI.setBackground(tvBG(0xFFE0C068)); break;
+            case "psychic": pokemonTypeI.setBackground(tvBG(0xFFF85888)); break;
+            case "rock": pokemonTypeI.setBackground(tvBG(0xFFB8A038)); break;
+            case "ice": pokemonTypeI.setBackground(tvBG(0xFF98D8D8)); break;
+            case "bug": pokemonTypeI.setBackground(tvBG(0xFFA8B820)); break;
+            case "dragon": pokemonTypeI.setBackground(tvBG(0xFF7038F8)); break;
+            case "ghost": pokemonTypeI.setBackground(tvBG(0xFF705898)); break;
+            case "dark": pokemonTypeI.setBackground(tvBG(0xFF705848)); break;
+            case "steel": pokemonTypeI.setBackground(tvBG(0xFFB8B8D0)); break;
+            default: ; return;
         }
 
         switch(pokemon.getTypeII().toLowerCase()){
-            case "normal": pokemonTypeII.setBackgroundColor(0xFFA8A878); break;
-            case "fire": pokemonTypeII.setBackgroundColor(0xFFF08030); break;
-            case "fighting": pokemonTypeII.setBackgroundColor(0xFFC03028); break;
-            case "water": pokemonTypeII.setBackgroundColor(0xFF6890F0); break;
-            case "flying": pokemonTypeII.setBackgroundColor(0xFFA890F0); break;
-            case "grass": pokemonTypeII.setBackgroundColor(0xFF78C850); break;
-            case "poison": pokemonTypeII.setBackgroundColor(0xFFA040A0); break;
-            case "electric": pokemonTypeII.setBackgroundColor(0xFFF8D030); break;
-            case "ground": pokemonTypeII.setBackgroundColor(0xFFE0C068); break;
-            case "psychic": pokemonTypeII.setBackgroundColor(0xFFF85888); break;
-            case "rock": pokemonTypeII.setBackgroundColor(0xFFB8A038); break;
-            case "ice": pokemonTypeII.setBackgroundColor(0xFF98D8D8); break;
-            case "bug": pokemonTypeII.setBackgroundColor(0xFFA8B820); break;
-            case "dragon": pokemonTypeII.setBackgroundColor(0xFF7038F8); break;
-            case "ghost": pokemonTypeII.setBackgroundColor(0xFF705898); break;
-            case "dark": pokemonTypeII.setBackgroundColor(0xFF705848); break;
-            case "steel": pokemonTypeII.setBackgroundColor(0xFFB8B8D0); break;
+            case "normal": pokemonTypeII.setBackground(tvBG(0xFFA8A878)); break;
+            case "fire": pokemonTypeII.setBackground(tvBG(0xFFF08030)); break;
+            case "fighting": pokemonTypeII.setBackground(tvBG(0xFFC03028)); break;
+            case "water": pokemonTypeII.setBackground(tvBG(0xFF6890F0)); break;
+            case "flying": pokemonTypeII.setBackground(tvBG(0xFFA890F0)); break;
+            case "grass": pokemonTypeII.setBackground(tvBG(0xFF78C850)); break;
+            case "poison": pokemonTypeII.setBackground(tvBG(0xFFA040A0)); break;
+            case "electric": pokemonTypeII.setBackground(tvBG(0xFFF8D030)); break;
+            case "ground": pokemonTypeII.setBackground(tvBG(0xFFE0C068)); break;
+            case "psychic": pokemonTypeII.setBackground(tvBG(0xFFF85888)); break;
+            case "rock": pokemonTypeII.setBackground(tvBG(0xFFB8A038)); break;
+            case "ice": pokemonTypeII.setBackground(tvBG(0xFF98D8D8)); break;
+            case "bug": pokemonTypeII.setBackground(tvBG(0xFFA8B820)); break;
+            case "dragon": pokemonTypeII.setBackground(tvBG(0xFF7038F8)); break;
+            case "ghost": pokemonTypeII.setBackground(tvBG(0xFF705898)); break;
+            case "dark": pokemonTypeII.setBackground(tvBG(0xFF705848)); break;
+            case "steel": pokemonTypeII.setBackground(tvBG(0xFFB8B8D0)); break;
             default: return;
         }
+    }
+
+    private GradientDrawable tvBG(int colour){
+        GradientDrawable gradientDrawable = new GradientDrawable();
+
+        gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+        gradientDrawable.setColor(colour);
+        gradientDrawable.setStroke(2, colour);
+        gradientDrawable.setCornerRadius(100.0f);
+
+        return gradientDrawable;
     }
 
 }
