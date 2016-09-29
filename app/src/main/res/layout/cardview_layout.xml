@@ -4,8 +4,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cv"
+
     app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:background="#50FFFFFF">
 
         <RelativeLayout
             android:layout_width="match_parent"

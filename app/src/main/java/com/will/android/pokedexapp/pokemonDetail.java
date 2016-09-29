@@ -17,6 +17,10 @@ public class pokemonDetail extends AppCompatActivity {
     int pokeID;
     pokemonModel pokemon = new pokemonModel();
 
+    TextView pokemonName;
+    TextView pokemonTypeI;
+    TextView pokemonTypeII;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +30,9 @@ public class pokemonDetail extends AppCompatActivity {
         setContentView(R.layout.activity_pokemon_detail);
 
         //Initialize all layout elements
-        TextView pokemonName = (TextView) findViewById(R.id.pokemon_name);
-        TextView pokemonTypeI = (TextView) findViewById(R.id.pokemon_typeI);
-        TextView pokemonTypeII = (TextView) findViewById(R.id.pokemon_typeII);
+        pokemonName = (TextView) findViewById(R.id.pokemon_name);
+        pokemonTypeI = (TextView) findViewById(R.id.pokemon_typeI);
+        pokemonTypeII = (TextView) findViewById(R.id.pokemon_typeII);
 
         //Set custom font for Pokemon Name TextView
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/gba.ttf");
@@ -50,10 +54,8 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonTypeI.setText(pokemon.getTypeI());
         pokemonTypeII.setText(pokemon.getTypeII());
 
-        switch(pokemon.getTypeI().toLowerCase()){
-            case "normal": pokemonTypeI.setBackgroundColor(0xFF9A9A6A);
-            case "fire": pokemonTypeI.setBackgroundColor(0xFFE6721F);
-        }
+        setTypeColours();
+
     }
 
     private pokemonModel getPokemonDB(){
@@ -64,5 +66,48 @@ public class pokemonDetail extends AppCompatActivity {
         return pokemon;
     }
 
+    private void setTypeColours(){
+        switch(pokemon.getTypeI().toLowerCase()){
+            case "normal": pokemonTypeI.setBackgroundColor(0xFFA8A878); break;
+            case "fire": pokemonTypeI.setBackgroundColor(0xFFF08030); break;
+            case "fighting": pokemonTypeI.setBackgroundColor(0xFFC03028); break;
+            case "water": pokemonTypeI.setBackgroundColor(0xFF6890F0); break;
+            case "flying": pokemonTypeI.setBackgroundColor(0xFFA890F0); break;
+            case "grass": pokemonTypeI.setBackgroundColor(0xFF78C850); break;
+            case "poison": pokemonTypeI.setBackgroundColor(0xFFA040A0); break;
+            case "electric": pokemonTypeI.setBackgroundColor(0xFFF8D030); break;
+            case "ground": pokemonTypeI.setBackgroundColor(0xFFE0C068); break;
+            case "psychic": pokemonTypeI.setBackgroundColor(0xFFF85888); break;
+            case "rock": pokemonTypeI.setBackgroundColor(0xFFB8A038); break;
+            case "ice": pokemonTypeI.setBackgroundColor(0xFF98D8D8); break;
+            case "bug": pokemonTypeI.setBackgroundColor(0xFFA8B820); break;
+            case "dragon": pokemonTypeI.setBackgroundColor(0xFF7038F8); break;
+            case "ghost": pokemonTypeI.setBackgroundColor(0xFF705898); break;
+            case "dark": pokemonTypeI.setBackgroundColor(0xFF705848); break;
+            case "steel": pokemonTypeI.setBackgroundColor(0xFFB8B8D0); break;
+            default: return;
+        }
+
+        switch(pokemon.getTypeII().toLowerCase()){
+            case "normal": pokemonTypeII.setBackgroundColor(0xFFA8A878); break;
+            case "fire": pokemonTypeII.setBackgroundColor(0xFFF08030); break;
+            case "fighting": pokemonTypeII.setBackgroundColor(0xFFC03028); break;
+            case "water": pokemonTypeII.setBackgroundColor(0xFF6890F0); break;
+            case "flying": pokemonTypeII.setBackgroundColor(0xFFA890F0); break;
+            case "grass": pokemonTypeII.setBackgroundColor(0xFF78C850); break;
+            case "poison": pokemonTypeII.setBackgroundColor(0xFFA040A0); break;
+            case "electric": pokemonTypeII.setBackgroundColor(0xFFF8D030); break;
+            case "ground": pokemonTypeII.setBackgroundColor(0xFFE0C068); break;
+            case "psychic": pokemonTypeII.setBackgroundColor(0xFFF85888); break;
+            case "rock": pokemonTypeII.setBackgroundColor(0xFFB8A038); break;
+            case "ice": pokemonTypeII.setBackgroundColor(0xFF98D8D8); break;
+            case "bug": pokemonTypeII.setBackgroundColor(0xFFA8B820); break;
+            case "dragon": pokemonTypeII.setBackgroundColor(0xFF7038F8); break;
+            case "ghost": pokemonTypeII.setBackgroundColor(0xFF705898); break;
+            case "dark": pokemonTypeII.setBackgroundColor(0xFF705848); break;
+            case "steel": pokemonTypeII.setBackgroundColor(0xFFB8B8D0); break;
+            default: return;
+        }
+    }
 
 }

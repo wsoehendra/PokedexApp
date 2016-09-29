@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#0099cc"
     tools:context="com.will.android.pokedexapp.pokemonDetail"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -29,38 +30,49 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.12">
 
-        <Space
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.45" />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="20dp"
             android:layout_height="match_parent"
-            android:id="@+id/pokemon_typeI"
-            android:layout_weight="0.45"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:gravity="center" />
+            android:layout_weight="0.12"
+            android:gravity="end"
+            android:layout_marginLeft="20dp">
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="20dp"
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/pokemon_typeI"
+                android:layout_weight="0.45"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textAlignment="center"
+                android:gravity="center" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/pokemon_typeII"
+                android:layout_weight="0.45"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="207dp"
             android:layout_height="match_parent"
-            android:id="@+id/pokemon_typeII"
-            android:layout_weight="0.44"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:gravity="center" />
+            android:layout_marginRight="20dp"></LinearLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.45" />
     </LinearLayout>
 
 </LinearLayout>
