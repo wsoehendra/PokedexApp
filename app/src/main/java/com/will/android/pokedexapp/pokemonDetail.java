@@ -3,10 +3,11 @@ package com.will.android.pokedexapp;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v7.app.ActionBar;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class pokemonDetail extends AppCompatActivity {
     TextView pokemonName;
     TextView pokemonTypeI;
     TextView pokemonTypeII;
+    TextView pokemonEntry;
     TextView pokemonHP;
     TextView pokemonATK;
     TextView pokemonDEF;
@@ -29,6 +31,14 @@ public class pokemonDetail extends AppCompatActivity {
     TextView pokemonSPD;
     TextView pokemonHeight;
     TextView pokemonWeight;
+    TextView pokemonAbilityI;
+    TextView pokemonAbilityII;
+    ImageView pokemonPrevEvI;
+    ImageView pokemonNextEvI;
+    TextView pokemonPrevEvT;
+    TextView pokemonNextEvT;
+    TextView prevEvText;
+    TextView nextEvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +49,7 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonName = (TextView) findViewById(R.id.pokemon_name);
         pokemonTypeI = (TextView) findViewById(R.id.pokemonTypeI);
         pokemonTypeII = (TextView) findViewById(R.id.pokemonTypeII);
+        pokemonEntry = (TextView) findViewById(R.id.pokemonEntry);
         pokemonHP = (TextView) findViewById(R.id.pokemonHP);
         pokemonATK = (TextView) findViewById(R.id.pokemonATK);
         pokemonDEF = (TextView) findViewById(R.id.pokemonDEF);
@@ -47,6 +58,14 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonSPD = (TextView) findViewById(R.id.pokemonSPD);
         pokemonHeight = (TextView) findViewById(R.id.pokemonHeight);
         pokemonWeight = (TextView) findViewById(R.id.pokemonWeight);
+        pokemonAbilityI = (TextView) findViewById(R.id.pokemonAbilityI);
+        pokemonAbilityII = (TextView) findViewById(R.id.pokemonAbilityII);
+        pokemonPrevEvI = (ImageView) findViewById(R.id.pokemonPrevEvI);
+        pokemonNextEvI = (ImageView) findViewById(R.id.pokemonNextEvI);
+        pokemonPrevEvT = (TextView) findViewById(R.id.pokemonPrevEvT);
+        pokemonNextEvT = (TextView) findViewById(R.id.pokemonNextEvT);
+        prevEvText = (TextView) findViewById(R.id.prevEvText);
+        nextEvText = (TextView) findViewById(R.id.nextEvText);
 
 
         //Set custom font for Pokemon Name TextView
@@ -69,6 +88,7 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonName.setText(pokemon.getPokemon());
         pokemonTypeI.setText(pokemon.getTypeI());
         pokemonTypeII.setText(pokemon.getTypeII());
+        pokemonEntry.setText(pokemon.getEntry());
         pokemonHP.setText(pokemon.getHp());
         pokemonATK.setText(pokemon.getAtk());
         pokemonDEF.setText(pokemon.getDef());
@@ -77,10 +97,43 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonSPD.setText(pokemon.getSpd());
         pokemonHeight.setText(pokemon.getHeight());
         pokemonWeight.setText(pokemon.getWeight());
+        pokemonAbilityI.setText(pokemon.getAbilityI());
+        pokemonAbilityII.setText(pokemon.getAbilityII());
 
         //Set Pokemon Types and colour accordingly
         setTypeColours();
 
+        int prevEvID = getEvolutions(pokemon.getPrevEv());
+        int nextEvID = getEvolutions(pokemon.getNextEv());
+
+        if(getEvolutions(pokemon.getPrevEv()) == 0){
+            pokemonPrevEvI.setVisibility(View.GONE);
+            pokemonPrevEvT.setVisibility(View.GONE);
+            prevEvText.setVisibility(View.GONE);
+        } else {
+            Log.d("EV", "Prev Ev: "+getEvolutions(pokemon.getPrevEv()));
+            pokemonPrevEvI.setImageResource(getResources().getIdentifier("@drawable/sa_"+prevEvID, "drawable", getPackageName()));
+            pokemonPrevEvT.setText(pokemon.getPrevEv());
+        }
+
+        if(getEvolutions(pokemon.getNextEv()) == 0){
+            pokemonNextEvI.setVisibility(View.GONE);
+            pokemonNextEvT.setVisibility(View.GONE);
+            nextEvText.setVisibility(View.GONE);
+        } else {
+            Log.d("EV", "Next Ev: "+getEvolutions(pokemon.getNextEv()));
+            pokemonNextEvI.setImageResource(getResources().getIdentifier("@drawable/sa_"+nextEvID, "drawable", getPackageName()));
+            pokemonNextEvT.setText(pokemon.getNextEv());
+        }
+
+    }
+
+    private int getEvolutions(String pokemon){
+        DatabaseAccess dbAccess = DatabaseAccess.getInstance(this);
+        dbAccess.open();
+        int evolutionID = 0;
+        evolutionID = dbAccess.getEvolutions(pokemon);
+        return evolutionID;
     }
 
     private pokemonModel getPokemonDB(){

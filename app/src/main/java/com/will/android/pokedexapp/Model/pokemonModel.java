@@ -9,6 +9,7 @@ public class pokemonModel {
 
     int ID;
     String pokemon;
+    String entry;
     String hp;
     String atk;
     String def;
@@ -33,9 +34,20 @@ public class pokemonModel {
         this.pokemon = pokemon;
     }
 
-    public pokemonModel(int ID, String pokemon, String hp, String atk, String def, String sa, String sd, String spd, String typeI, String typeII, String abilityI, String abilityII, String prevEv, String nextEv, String height, String weight, int sprite) {
+    public void setEntry(String entry) {
+        this.entry = entry;
+    }
+
+    public String getEntry() {
+
+        return entry;
+    }
+
+    public pokemonModel(int ID, String pokemon, String entry, String hp, String atk, String def, String sa, String sd, String spd, String typeI, String typeII, String abilityI, String abilityII, String prevEv, String nextEv, String height, String weight, int sprite) {
         this.ID = ID;
         this.pokemon = pokemon;
+        this.entry = entry;
+
         this.hp = hp;
         this.atk = atk;
         this.def = def;

@@ -72,9 +72,15 @@ public class pokedexChooser extends AppCompatActivity {
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
                 if(child != null && gestureDetector.onTouchEvent(e)) {
                     int position = rv.getChildAdapterPosition(child)+1;
-                    Intent intent = new Intent(child.getContext(),pokemonDetail.class);
-                    intent.putExtra("pokeID", position);
-                    startActivity(intent);
+                    if(position == 133){
+                        Intent intent = new Intent(child.getContext(),eeveeDetail.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(child.getContext(),pokemonDetail.class);
+                        intent.putExtra("pokeID", position);
+                        startActivity(intent);
+                    }
+
                 } return false; }
 
             @Override
