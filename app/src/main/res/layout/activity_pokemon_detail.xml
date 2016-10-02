@@ -18,21 +18,30 @@
         android:weightSum="1">
 
         <Button
-            android:text="All Pokemons"
+            android:text="Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/backBtn"
-            android:background="#00FFFFFF"
-            android:layout_weight="0.19"
-            android:textAlignment="textStart"
-            android:gravity="start"
-            android:layout_marginLeft="10dp" />
+            android:background="#a21111"
+            android:layout_weight="0.10"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:text="Kanto Pokedex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/kantoPokedex"
+            android:textSize="20sp"
+            android:background="#a21111"
+            android:gravity="center_vertical|start"
+            android:paddingLeft="10dp"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E01818">
+        android:background="@drawable/detailbg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +57,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/pokemon_sprite"
                 android:background="#00FFFFFF"
-                android:layout_marginTop="30dp" />
+                android:layout_marginTop="10dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -69,18 +78,21 @@
                 android:layout_weight="0.22"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:background="#80FFFFFF">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.12"
-                    android:gravity="end">
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
 
                     <TextView
                         android:text="TYPE I"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="20dp"
                         android:id="@+id/pokemonTypeI"
                         android:layout_weight="0.45"
@@ -92,7 +104,7 @@
 
                     <TextView
                         android:text="TYPE II"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="20dp"
                         android:id="@+id/pokemonTypeII"
                         android:layout_weight="0.45"
@@ -238,43 +250,21 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp">
-
-                <TextView
-                    android:text="Information"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:textStyle="normal|bold"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:text="TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/pokemonEntry"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#80FFFFFF">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:text="HEIGHT"
@@ -299,7 +289,8 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:text="ABILITIES"
@@ -332,7 +323,8 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:text="WEIGHT"
@@ -359,10 +351,32 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#80FFFFFF">
 
+                <TextView
+                    android:text="Information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#000000"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="5dp" />
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pokemonEntry"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -370,7 +384,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:background="#80FFFFFF"
+                android:id="@+id/evolutionsFrame"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:text="Evolutions"
@@ -379,7 +396,8 @@
                     android:layout_weight="1"
                     android:textSize="20sp"
                     android:textColor="#000000"
-                    android:textStyle="normal|bold" />
+                    android:textStyle="normal|bold"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:text="Previous Evolution"
@@ -406,7 +424,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/pokemonPrevEvT"
                     android:layout_weight="1"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:text="Next Evolution"
@@ -433,7 +452,8 @@
                     android:id="@+id/pokemonNextEvT"
                     android:layout_weight="1"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </LinearLayout>

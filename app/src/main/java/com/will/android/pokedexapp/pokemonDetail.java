@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.will.android.pokedexapp.Database.DatabaseAccess;
@@ -20,6 +21,7 @@ public class pokemonDetail extends AppCompatActivity {
     int pokeID;
     pokemonModel pokemon = new pokemonModel();
 
+    TextView kantoPokedex;
     TextView pokemonName;
     TextView pokemonTypeI;
     TextView pokemonTypeII;
@@ -48,6 +50,7 @@ public class pokemonDetail extends AppCompatActivity {
         setContentView(R.layout.activity_pokemon_detail);
 
         //Initialize all layout elements
+        kantoPokedex = (TextView) findViewById(R.id.kantoPokedex);
         pokemonName = (TextView) findViewById(R.id.pokemon_name);
         pokemonTypeI = (TextView) findViewById(R.id.pokemonTypeI);
         pokemonTypeII = (TextView) findViewById(R.id.pokemonTypeII);
@@ -72,6 +75,7 @@ public class pokemonDetail extends AppCompatActivity {
 
         //Set custom font for Pokemon Name TextView
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/gba.ttf");
+        kantoPokedex.setTypeface(font);
         pokemonName.setTypeface(font);
 
         //Get the pokemon ID from the preceding intent
@@ -108,13 +112,27 @@ public class pokemonDetail extends AppCompatActivity {
         //Set Evolution Details
         setEvolutions();
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), pokedexChooser.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setEvolutions(){
         int prevEvID = getEvolutions(pokemon.getPrevEv());
         int nextEvID = getEvolutions(pokemon.getNextEv());
 
-        if(getEvolutions(pokemon.getPrevEv()) == 0){
+        LinearLayout evFrame = (LinearLayout) findViewById(R.id.evolutionsFrame);
+
+        if(prevEvID == 0 && nextEvID == 0)
+        {
+            evFrame.setVisibility(View.GONE);
+        }
+
+        if(prevEvID == 0){
             pokemonPrevEvI.setVisibility(View.GONE);
             pokemonPrevEvT.setVisibility(View.GONE);
             prevEvText.setVisibility(View.GONE);
@@ -124,7 +142,7 @@ public class pokemonDetail extends AppCompatActivity {
             pokemonPrevEvT.setText(pokemon.getPrevEv());
         }
 
-        if(getEvolutions(pokemon.getNextEv()) == 0){
+        if(nextEvID == 0){
             pokemonNextEvI.setVisibility(View.GONE);
             pokemonNextEvT.setVisibility(View.GONE);
             nextEvText.setVisibility(View.GONE);

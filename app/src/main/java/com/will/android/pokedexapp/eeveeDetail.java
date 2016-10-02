@@ -50,9 +50,6 @@ public class eeveeDetail extends AppCompatActivity {
         pokemon = dbAccess.getPokemon(133);
         dbAccess.close();
 
-        GifTextView gif = (GifTextView) findViewById(R.id.gif);
-        gif.setBackgroundResource(getResources().getIdentifier("@drawable/g_01", "drawable", getPackageName()));
-
         //Initialize all layout elements
         pokemonName = (TextView) findViewById(R.id.pokemon_name);
         pokemonTypeI = (TextView) findViewById(R.id.pokemonTypeI);
