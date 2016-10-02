@@ -16,6 +16,8 @@ import com.will.android.pokedexapp.Model.pokemonModel;
 
 import java.util.List;
 
+import pl.droidsonroids.gif.GifTextView;
+
 /**
  * Created by wsoeh on 20/09/2016.
  */
@@ -26,14 +28,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
         CardView cv;
         TextView pokemonName;
         TextView pokemonID;
-        ImageView pokemonSprite;
+        GifTextView pokemonSprite;
 
         pokemonViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
             pokemonName = (TextView)itemView.findViewById(R.id.pokemon_name);
             pokemonID = (TextView)itemView.findViewById(R.id.pokemon_id);
-            pokemonSprite = (ImageView)itemView.findViewById(R.id.pokemon_sprite);
+            pokemonSprite = (GifTextView)itemView.findViewById(R.id.pokemon_sprite);
 
             Typeface font = Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/gba.ttf");
             this.pokemonName.setTypeface(font);
@@ -73,7 +75,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
     public void onBindViewHolder(pokemonViewHolder pokemonViewHolder, int i) {
         pokemonViewHolder.pokemonName.setText(pokemonsList.get(i).getPokemon());
         pokemonViewHolder.pokemonID.setText("# "+String.valueOf(pokemonsList.get(i).getID()));
-        pokemonViewHolder.pokemonSprite.setImageResource(pokemonsList.get(i).getSprite());
+        pokemonViewHolder.pokemonSprite.setBackgroundResource(pokemonsList.get(i).getSprite());
     }
 
     @Override

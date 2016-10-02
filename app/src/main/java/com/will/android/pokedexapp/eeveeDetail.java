@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.will.android.pokedexapp.Database.DatabaseAccess;
 import com.will.android.pokedexapp.Model.pokemonModel;
 
+import pl.droidsonroids.gif.GifTextView;
+
 /**
  * Created by wsoeh on 30/09/2016.
  */
@@ -35,6 +37,8 @@ public class eeveeDetail extends AppCompatActivity {
     TextView pokemonAbilityI;
     TextView pokemonAbilityII;
 
+
+
     pokemonModel pokemon;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,9 @@ public class eeveeDetail extends AppCompatActivity {
         dbAccess.open();
         pokemon = dbAccess.getPokemon(133);
         dbAccess.close();
+
+        GifTextView gif = (GifTextView) findViewById(R.id.gif);
+        gif.setBackgroundResource(getResources().getIdentifier("@drawable/g_01", "drawable", getPackageName()));
 
         //Initialize all layout elements
         pokemonName = (TextView) findViewById(R.id.pokemon_name);

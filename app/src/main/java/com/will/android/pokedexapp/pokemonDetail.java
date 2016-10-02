@@ -105,6 +105,12 @@ public class pokemonDetail extends AppCompatActivity {
         //Set Pokemon Types and colour accordingly
         setTypeColours();
 
+        //Set Evolution Details
+        setEvolutions();
+
+    }
+
+    private void setEvolutions(){
         int prevEvID = getEvolutions(pokemon.getPrevEv());
         int nextEvID = getEvolutions(pokemon.getNextEv());
 
@@ -127,15 +133,6 @@ public class pokemonDetail extends AppCompatActivity {
             pokemonNextEvI.setImageResource(getResources().getIdentifier("@drawable/sa_"+nextEvID, "drawable", getPackageName()));
             pokemonNextEvT.setText(pokemon.getNextEv());
         }
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), pokedexChooser.class);
-                Log.d("Click", "Clicked");
-            }
-        });
-
     }
 
     private int getEvolutions(String pokemon){
