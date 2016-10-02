@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ public class pokemonDetail extends AppCompatActivity {
     TextView pokemonNextEvT;
     TextView prevEvText;
     TextView nextEvText;
+    Button backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class pokemonDetail extends AppCompatActivity {
         pokemonNextEvT = (TextView) findViewById(R.id.pokemonNextEvT);
         prevEvText = (TextView) findViewById(R.id.prevEvText);
         nextEvText = (TextView) findViewById(R.id.nextEvText);
-
+        backBtn = (Button) findViewById(R.id.backBtn);
 
         //Set custom font for Pokemon Name TextView
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/gba.ttf");
@@ -125,6 +127,14 @@ public class pokemonDetail extends AppCompatActivity {
             pokemonNextEvI.setImageResource(getResources().getIdentifier("@drawable/sa_"+nextEvID, "drawable", getPackageName()));
             pokemonNextEvT.setText(pokemon.getNextEv());
         }
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), pokedexChooser.class);
+                Log.d("Click", "Clicked");
+            }
+        });
 
     }
 

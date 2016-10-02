@@ -10,6 +10,25 @@
     android:scrollbarAlwaysDrawVerticalTrack="false"
     android:scrollbars="vertical">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E01818"
+        android:weightSum="1">
+
+        <Button
+            android:text="All Pokemons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backBtn"
+            android:background="#00FFFFFF"
+            android:layout_weight="0.19"
+            android:textAlignment="textStart"
+            android:gravity="start"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,6 +39,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@null">
+
 
             <ImageView
                 android:layout_width="300dp"
@@ -399,7 +419,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/pokemonNextEvT"
                     android:layout_weight="1"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp" />
             </LinearLayout>
 
         </LinearLayout>
