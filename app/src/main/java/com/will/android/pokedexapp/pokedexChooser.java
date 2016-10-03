@@ -2,12 +2,10 @@ package com.will.android.pokedexapp;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,20 +24,21 @@ public class pokedexChooser extends AppCompatActivity {
 
     //An empty list of Pokemon objects
     List<pokemonModel> pokemons = new ArrayList<>();
+    TextView kantoPokedex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokedex_chooser);
 
-        TextView kantoPokedex = (TextView) findViewById(R.id.kantoPokedex);
+        kantoPokedex = (TextView) findViewById(R.id.kantoPokedex);
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/gba.ttf");
         kantoPokedex.setTypeface(font);
 
         //Create a DatabaseAccess object in order to
         //open a connection to the DB and run a query for
         //a list of Pokemon to display
-        DatabaseAccess dbAccess = DatabaseAccess.getInstance(this);
+        final DatabaseAccess dbAccess = DatabaseAccess.getInstance(this);
         dbAccess.open();
         pokemons = dbAccess.getPokemonBrief();
 

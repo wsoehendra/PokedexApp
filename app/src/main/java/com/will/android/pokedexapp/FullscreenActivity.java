@@ -1,26 +1,31 @@
 package com.will.android.pokedexapp;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 //This activity shows a splashscreen when opening the app
 
 public class FullscreenActivity extends AppCompatActivity {
 
     ImageButton openBtn;
+    TextView kantoPokedex;
+    TextView openText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullscreen);
+
+        kantoPokedex = (TextView) findViewById(R.id.kantoPokedex);
+        openText = (TextView) findViewById(R.id.openText);
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/gba.ttf");
+        kantoPokedex.setTypeface(font);
+        openText.setTypeface(font);
 
         //Create the Open Pokedex Button and set it to open pokedexChooser activity when clicked
         openBtn = (ImageButton) findViewById(R.id.openBtn);

@@ -1,15 +1,11 @@
 package com.will.android.pokedexapp;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.will.android.pokedexapp.Model.pokemonModel;
@@ -24,6 +20,7 @@ import pl.droidsonroids.gif.GifTextView;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder> {
 
+    //Create a ViewHolder for the elements in the card
     public static class pokemonViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
         TextView pokemonName;
@@ -37,17 +34,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
             pokemonID = (TextView)itemView.findViewById(R.id.pokemon_id);
             pokemonSprite = (GifTextView)itemView.findViewById(R.id.pokemon_sprite);
 
+            //Set PokemonName font as custom font
             Typeface font = Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/gba.ttf");
             this.pokemonName.setTypeface(font);
-
-            itemView.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    int pos = getAdapterPosition()+1;
-                    Log.d("onCLICK", "Clicked: "+pos);
-
-                }
-            });
         }
 
     }
@@ -66,7 +55,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.pokemonViewHolder>
     @Override
     public pokemonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_layout, viewGroup, false);
-
         pokemonViewHolder pvh = new pokemonViewHolder(v);
         return pvh;
     }

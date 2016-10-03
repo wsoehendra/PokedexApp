@@ -3,10 +3,8 @@ package com.will.android.pokedexapp;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -128,32 +126,36 @@ public class pokemonDetail extends AppCompatActivity {
 
         LinearLayout evFrame = (LinearLayout) findViewById(R.id.evolutionsFrame);
 
+        //If there is no previous/next evolution, remove the entire Evolutions frame
         if(prevEvID == 0 && nextEvID == 0)
         {
             evFrame.setVisibility(View.GONE);
         }
 
+        //If there is no previous evolution, remove the Prev Evolution items
+        //Else, display the prev evolutions
         if(prevEvID == 0){
             pokemonPrevEvI.setVisibility(View.GONE);
             pokemonPrevEvT.setVisibility(View.GONE);
             prevEvText.setVisibility(View.GONE);
         } else {
-            Log.d("EV", "Prev Ev: "+getEvolutions(pokemon.getPrevEv()));
             pokemonPrevEvI.setImageResource(getResources().getIdentifier("@drawable/sa_"+prevEvID, "drawable", getPackageName()));
             pokemonPrevEvT.setText(pokemon.getPrevEv());
         }
 
+        //If there is no next evolution, remove the Next Evolution items
+        //ELse, display the next evolutions
         if(nextEvID == 0){
             pokemonNextEvI.setVisibility(View.GONE);
             pokemonNextEvT.setVisibility(View.GONE);
             nextEvText.setVisibility(View.GONE);
         } else {
-            Log.d("EV", "Next Ev: "+getEvolutions(pokemon.getNextEv()));
             pokemonNextEvI.setImageResource(getResources().getIdentifier("@drawable/sa_"+nextEvID, "drawable", getPackageName()));
             pokemonNextEvT.setText(pokemon.getNextEv());
         }
     }
 
+    //Get the name of the pokemon's evolutions, and retrieve ID#
     private int getEvolutions(String pokemon){
         DatabaseAccess dbAccess = DatabaseAccess.getInstance(this);
         dbAccess.open();
@@ -162,14 +164,15 @@ public class pokemonDetail extends AppCompatActivity {
         return evolutionID;
     }
 
+    //Get all data for the current Pokemon
     private pokemonModel getPokemonDB(){
         DatabaseAccess dbAccess = DatabaseAccess.getInstance(this);
         dbAccess.open();
         pokemon = dbAccess.getPokemon(pokeID);
-        Log.d("POKE", pokemon.toString());
         return pokemon;
     }
 
+    //Set the colours of the PokemonType textfields to change with the Type of the Pokemon
     private void setTypeColours(){
         GradientDrawable gd = new GradientDrawable();
         gd.setCornerRadius(10);

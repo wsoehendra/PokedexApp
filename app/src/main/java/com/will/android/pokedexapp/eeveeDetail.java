@@ -5,18 +5,14 @@ import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import android.support.v7.app.AppCompatActivity;
-
 import com.will.android.pokedexapp.Database.DatabaseAccess;
 import com.will.android.pokedexapp.Model.pokemonModel;
 
-import pl.droidsonroids.gif.GifTextView;
 
 /**
  * Created by wsoeh on 30/09/2016.
@@ -40,13 +36,13 @@ public class eeveeDetail extends AppCompatActivity {
     TextView pokemonAbilityII;
     Button backBtn;
 
-
     pokemonModel pokemon;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eevee_detail);
 
+        //Open a DatabaseAccess object and get Eevee
         DatabaseAccess dbAccess = DatabaseAccess.getInstance(this);
         dbAccess.open();
         pokemon = dbAccess.getPokemon(133);
@@ -78,6 +74,7 @@ public class eeveeDetail extends AppCompatActivity {
         ImageView img = (ImageView) findViewById(R.id.pokemon_sprite);
         img.setImageResource(getResources().getIdentifier("@drawable/sa_133", "drawable", getPackageName()));
 
+        //Populate Eevee data
         pokemonName.setText(pokemon.getPokemon());
         pokemonTypeI.setText(pokemon.getTypeI());
         pokemonTypeII.setText(pokemon.getTypeII());
@@ -93,6 +90,7 @@ public class eeveeDetail extends AppCompatActivity {
         pokemonAbilityI.setText(pokemon.getAbilityI());
         pokemonAbilityII.setText(pokemon.getAbilityII());
 
+        //Set the Type for Eevee
         pokemonTypeI.setBackground(tvBG(0xFFA8A878));
 
         //Back Button functionality
@@ -105,6 +103,7 @@ public class eeveeDetail extends AppCompatActivity {
         });
     }
 
+    //Create a Gradient Drawable to set colour and corner radius of Type TextView
     private GradientDrawable tvBG(int colour){
         GradientDrawable gradientDrawable = new GradientDrawable();
 
