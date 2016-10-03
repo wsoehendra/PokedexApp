@@ -35,6 +35,12 @@ public class FullscreenActivity extends AppCompatActivity {
                 goToChooser();
             }
         });
+        openText.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToChooser();
+            }
+        }));
     }
 
     //Method that switches activities to pokedexChooser
