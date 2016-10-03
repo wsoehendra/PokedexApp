@@ -6,6 +6,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,7 +38,7 @@ public class eeveeDetail extends AppCompatActivity {
     TextView pokemonWeight;
     TextView pokemonAbilityI;
     TextView pokemonAbilityII;
-
+    Button backBtn;
 
 
     pokemonModel pokemon;
@@ -65,6 +67,7 @@ public class eeveeDetail extends AppCompatActivity {
         pokemonWeight = (TextView) findViewById(R.id.pokemonWeight);
         pokemonAbilityI = (TextView) findViewById(R.id.pokemonAbilityI);
         pokemonAbilityII = (TextView) findViewById(R.id.pokemonAbilityII);
+        backBtn = (Button) findViewById(R.id.backBtn);
 
 
         //Set custom font for Pokemon Name TextView
@@ -91,6 +94,15 @@ public class eeveeDetail extends AppCompatActivity {
         pokemonAbilityII.setText(pokemon.getAbilityII());
 
         pokemonTypeI.setBackground(tvBG(0xFFA8A878));
+
+        //Back Button functionality
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), pokedexChooser.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private GradientDrawable tvBG(int colour){

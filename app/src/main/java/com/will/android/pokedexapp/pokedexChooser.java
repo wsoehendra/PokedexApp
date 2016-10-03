@@ -50,7 +50,6 @@ public class pokedexChooser extends AppCompatActivity {
             String ID = String.valueOf(p.getID());
             uri = uri+ID;
             p.setSprite(getResources().getIdentifier(uri,"drawable",getPackageName()));
-            Log.d("SPRITES", uri);
             uri = "@drawable/s";
         }
 

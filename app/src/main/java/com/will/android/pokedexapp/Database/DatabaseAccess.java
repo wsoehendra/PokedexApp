@@ -24,12 +24,7 @@ public class DatabaseAccess {
         this.openHelper = new DatabaseOpenHelper(context);
     }
 
-    /**
-     * Return a singleton instance of DatabaseAccess.
-     *
-     * @param context the Context
-     * @return the instance of DabaseAccess
-     */
+    //Returns an instance of DatabaseAccess: to be called when using this class
     public static DatabaseAccess getInstance(Context context) {
         if (instance == null) {
             instance = new DatabaseAccess(context);
@@ -37,22 +32,19 @@ public class DatabaseAccess {
         return instance;
     }
 
-    /**
-     * Open the database connection.
-     */
+    //Open connection
     public void open() {
         this.database = openHelper.getWritableDatabase();
     }
 
-    /**
-     * Close the database connection.
-     */
+    //close connection
     public void close() {
         if (database != null) {
             this.database.close();
         }
     }
 
+    //Get a list of Pokemons (Only ID# and Name), used for PokedexChooser
     public ArrayList<pokemonModel> getPokemonBrief() {
         ArrayList<pokemonModel> list = new ArrayList<pokemonModel>();
         Cursor cursor = database.rawQuery("SELECT * FROM POKEMON", null);
@@ -68,6 +60,8 @@ public class DatabaseAccess {
         return list;
     }
 
+    //Get a specific Pokemon, given an ID#
+    //Used in pokemonDetail class
     public pokemonModel getPokemon(int pokeID){
         pokemonModel selectedPoke = new pokemonModel();
         Cursor cursor = database.rawQuery("SELECT * FROM POKEMON WHERE ID = "+pokeID, null);
@@ -94,6 +88,8 @@ public class DatabaseAccess {
         return selectedPoke;
     }
 
+    //Used for getting a Pokemon's evolutions
+    //(Esentially converts Pokemon Name into Pokemon ID# so it can be called
     public int getEvolutions(String pokemonName){
         int pokeID;
         Cursor cursor = database.rawQuery("SELECT * FROM POKEMON WHERE POKEMON = '"+pokemonName+"'", null);

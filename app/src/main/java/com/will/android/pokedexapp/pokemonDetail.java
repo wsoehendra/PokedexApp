@@ -112,6 +112,7 @@ public class pokemonDetail extends AppCompatActivity {
         //Set Evolution Details
         setEvolutions();
 
+        //Back Button functionality
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
