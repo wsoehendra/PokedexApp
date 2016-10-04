@@ -1,6 +1,4 @@
-# pokedexApp
-
-PokedexApp by Will Soehendra
+# PokedexApp by Will Soehendra
 INFS3634 S2, 2016
 
 This app shows 151 Kanto region Pokemons (Bulbasaur to Mew), and presents detailed 
